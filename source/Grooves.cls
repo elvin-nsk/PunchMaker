@@ -80,7 +80,7 @@ Private Function MakePunchOnNode(ByVal Node As Node) As Shape
     Dim Angle As Double: Angle = AngleOutside(Node)
     Dim Punch As Shape: Set Punch = MakeGroovePunch
     With Punch
-        .LeftX = Node.PositionX - GrooveSize / 2
+        .LeftX = Node.PositionX
         .TopY = Node.PositionY + GrooveSize / 2
         .Rotate AngleOutside(Node)
     End With
@@ -156,7 +156,7 @@ Public Function MakePunch( _
             .CornerUpperLeft = 100
             .CornerUpperRight = 100
         End With
-        .RotationCenterX = .LeftX + Diameter / 2
+        .RotationCenterX = .LeftX ' + Diameter / 2
         .RotationCenterY = .BottomY + Diameter / 2
         If IsSome(FillColor) Then .Fill.ApplyUniformFill FillColor
         If IsSome(OutlineColor) Then .Outline.Color.CopyAssign OutlineColor
